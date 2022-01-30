@@ -32,6 +32,16 @@ const blogSchema = mongoose.Schema({
         default : []
     },
 
+    likes : [
+        {
+          user :  {
+                type : mongoose.Schema.Types.ObjectId,
+                ref : 'Users'
+            }
+
+        }
+    ],
+
     date : {
         type: 'date',
         default: Date.now

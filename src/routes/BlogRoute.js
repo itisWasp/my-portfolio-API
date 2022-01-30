@@ -14,6 +14,7 @@ router.patch('/Updateblog/:id', privateRoute.authAdmin , BlogController.updatePo
 router.get('/Getblog', BlogController.getPosts);
 router.get('/Getblog/:id', BlogController.getPostsById);
 router.delete('/Deleteblog/:id', privateRoute.authAdmin , BlogController.deletePostById);
-router.post('/comment/:id', privateRoute.authUser ,BlogController.commentPost)
+router.put('/comment/:id', privateRoute.authUser ,BlogController.commentPost)
+router.put('/like/:id', privateRoute.authUser, BlogController.likePost);
 
 module.exports = router;

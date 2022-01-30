@@ -8,7 +8,7 @@ class privateRoute {
         try {
             
             const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-            req.user = verified;
+            req.user = verified.user;
     
             next();
     
