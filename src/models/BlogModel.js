@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const blogSchema = mongoose.Schema({
 
@@ -32,6 +33,16 @@ const blogSchema = mongoose.Schema({
         default : []
     },
 
+    likes : [
+        {
+          user :  {
+                type : mongoose.Schema.Types.ObjectId,
+                ref : 'Users'
+            }
+
+        }
+    ],
+
     date : {
         type: 'date',
         default: Date.now
@@ -39,4 +50,4 @@ const blogSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('BlogPost', blogSchema);
+export default mongoose.model('BlogPost', blogSchema);

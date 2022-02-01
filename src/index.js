@@ -1,5 +1,8 @@
-const app = require('./app');
-const dotenv = require('dotenv');
+// const app = require('./app');
+// const dotenv = require('dotenv');
+
+import app from './app.js';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -8,3 +11,5 @@ const port = process.env.PORT || 5000;
 app.listen(port, ()=> {
     console.log(`Server Started on Port ${port}`);
 });
+
+export default app;

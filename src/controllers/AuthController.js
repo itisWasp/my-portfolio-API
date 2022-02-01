@@ -1,10 +1,18 @@
-const User = require('../models/UsersModel');
-// const schema = require('../middlewares/UserValidation');
-const { registerValidation , loginValidation, registerAdminValidation, loginAdminValidation} = require('../middlewares/UserValidation');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+// const User = require('../models/UsersModel');
+// // const schema = require('../middlewares/UserValidation');
+// const { registerValidation , loginValidation, registerAdminValidation, loginAdminValidation} = require('../middlewares/UserValidation');
+// const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
 
-const config = require('../config/production');
+// const config = require('../config/production');
+
+import User from '../models/UsersModel.js';
+import { registerValidation , loginValidation, registerAdminValidation, loginAdminValidation} from '../middlewares/UserValidation.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
+import config from '../config/production.js';
+
 
 class UsersController {
 
@@ -75,7 +83,7 @@ class UsersController {
 
 
             //create and Assign a token
-            const token = jwt.sign({_id: user.id, role: user.role, username : user.username}, process.env.TOKEN_SECRET);
+            const token = jwt.sign({ user : {id: user.id, role: user.role, username : user.username}}, process.env.TOKEN_SECRET, {expiresIn:3600});
             res.header('auth-token', token);
 
             res.send('Logged In Successfully :)');
@@ -143,7 +151,7 @@ class UsersController {
 
 
             //create and Assign a token
-            const token = jwt.sign({_id: user.id, role: user.role}, process.env.TOKEN_SECRET);
+            const token = jwt.sign({_id: user.id, role: user.role}, process.env.TOKEN_SECRET, {expiresIn : 3600});
             res.header('admin-token', token);
 
             res.send('Admin Logged In Successfully :)');
@@ -152,4 +160,4 @@ class UsersController {
 
 }
 
-module.exports = UsersController;
+export default UsersController;

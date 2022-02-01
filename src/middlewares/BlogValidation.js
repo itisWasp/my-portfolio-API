@@ -1,4 +1,5 @@
-const Joi = require('@hapi/joi');
+// const Joi = require('@hapi/joi');
+import Joi from '@hapi/joi';
 
 const schema = Joi.object({
     Title: Joi.string().min(6).trim().required(),
@@ -6,4 +7,4 @@ const schema = Joi.object({
     ImageLink: Joi.string().min(6).trim().uri().required()
 });
 
-module.exports = schema;
+export default schema; 

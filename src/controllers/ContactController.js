@@ -1,8 +1,11 @@
-const Contacts = require('../models/ContactModel');
-const schema = require('../middlewares/ContactValidation');
+// // const Contacts = require('../models/ContactModel');
+// // const schema = require('../middlewares/ContactValidation');
 
-// import Contacts from '../models/ContactModel';
-// import schema from '../middlewares/ContactValidation'
+import Contacts from '../models/ContactModel.js';
+import schema from '../middlewares/ContactValidation.js';
+
+// // import Contacts from '../models/ContactModel';
+// // import schema from '../middlewares/ContactValidation'
 
 
 class ContactController{
@@ -62,4 +65,4 @@ class ContactController{
 
 }
 
-module.exports = ContactController;
+export default ContactController;

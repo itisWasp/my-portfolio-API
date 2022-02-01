@@ -5,7 +5,7 @@
  * @link http://docs.mongolab.com/migrating/
  */
 
-module.exports = {
+export default {
     db: process.env.DB_CONNECT,
     // set this to build
     // dir: 'build/',

@@ -1,4 +1,5 @@
-const cloudinary = require('../config/cloudinary');
+// const cloudinary = require('../config/cloudinary');
+import cloudinary from '../config/cloudinary.js';
 
 
 let imagePost = async (req, res) => {
@@ -12,4 +13,4 @@ let imagePost = async (req, res) => {
     }
 }
 
-module.exports = imagePost;
+export default imagePost;

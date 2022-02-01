@@ -1,8 +1,12 @@
-const BlogPost = require('../models/BlogModel');
-// import BlogPost from '../models/BlogModel';
-const schema = require('../middlewares/BlogValidation');
-const commentSchema = require('../middlewares/CommentValidation');
-// import schema from '../middlewares/BlogValidation';
+// const BlogPost = require('../models/BlogModel');
+// // import BlogPost from '../models/BlogModel';
+// const schema = require('../middlewares/BlogValidation');
+// const commentSchema = require('../middlewares/CommentValidation');
+// // import schema from '../middlewares/BlogValidation';
+
+import BlogPost from '../models/BlogModel.js';
+import schema from '../middlewares/BlogValidation.js';
+import commentSchema from '../middlewares/CommentValidation.js'
 
 class BlogController {
 
@@ -93,12 +97,14 @@ class BlogController {
         if (error) return res.status(400).send(error.details[0].message);   
 
         try{
+            
             const blog = await BlogPost.findOne({_id: req.params.id});
             
             if(req.body.Comment){
                 blog.comment.push({ 
                     comment :req.body.Comment,
                     date : new Date(),
+                    username : req.user.username
 
                 });
             }
@@ -110,6 +116,37 @@ class BlogController {
 
     }
 
+    static likePost = async (req, res) => {
+          
+        try{
+            const blog = await BlogPost.findOne({_id: req.params.id});
+
+            if(blog.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
+                return res.status(400).json({
+                    msg: 'Post Already Liked'
+                });
+            }
+
+            blog.likes.unshift({user : req.user.id});
+
+            await blog.save();
+
+            res.json(blog.likes);
+
+            // if(req.body.Comment){
+            //     blog.comment.push({ 
+            //         comment :req.body.Comment,
+            //         date : new Date(),
+
+            //     });
+            // }
+            // await blog.save();
+            // res.send(blog);
+        } catch(err) {
+            res.status(400).send({err: "Post Doesn\'t Exist"});
+        }
+    }
+
 }
 
-module.exports = BlogController;
+export default BlogController;
