@@ -1,4 +1,5 @@
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 class privateRoute {
     static authUser = (req, res, next) => {
@@ -37,4 +38,4 @@ class privateRoute {
 }
 
 
-module.exports = privateRoute;
+export default privateRoute;

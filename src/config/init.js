@@ -1,10 +1,13 @@
 'use strict';
 
-var config = require('./production');
-const User = require('../models/UsersModel')
-const bcrypt = require('bcrypt')
+// var config = require('./production');
+// const User = require('../models/UsersModel')
+// const bcrypt = require('bcrypt')
 
-module.exports = function() {
+import config from './production.js';
+import User from '../models/UsersModel.js';
+
+export default function() {
     return new Promise(function(resolve) {
         // var User = db.model('User');
         User.findOne({ email: config.adminAccountEmail}, function(err, user) {

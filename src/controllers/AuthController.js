@@ -1,10 +1,18 @@
-const User = require('../models/UsersModel');
-// const schema = require('../middlewares/UserValidation');
-const { registerValidation , loginValidation, registerAdminValidation, loginAdminValidation} = require('../middlewares/UserValidation');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+// const User = require('../models/UsersModel');
+// // const schema = require('../middlewares/UserValidation');
+// const { registerValidation , loginValidation, registerAdminValidation, loginAdminValidation} = require('../middlewares/UserValidation');
+// const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
 
-const config = require('../config/production');
+// const config = require('../config/production');
+
+import User from '../models/UsersModel.js';
+import { registerValidation , loginValidation, registerAdminValidation, loginAdminValidation} from '../middlewares/UserValidation.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
+import config from '../config/production.js';
+
 
 class UsersController {
 
@@ -152,4 +160,4 @@ class UsersController {
 
 }
 
-module.exports = UsersController;
+export default UsersController;

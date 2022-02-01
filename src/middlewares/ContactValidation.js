@@ -1,4 +1,5 @@
-const Joi = require('@hapi/joi');
+// const Joi = require('@hapi/joi');
+import Joi from '@hapi/joi';
 
 //server side validation
 const schema = Joi.object({
@@ -7,4 +8,4 @@ const schema = Joi.object({
     Messages:Joi.string().min(6).trim().required()
 });
 
-module.exports = schema;
+export default schema;

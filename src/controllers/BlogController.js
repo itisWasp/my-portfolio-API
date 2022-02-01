@@ -1,8 +1,12 @@
-const BlogPost = require('../models/BlogModel');
-// import BlogPost from '../models/BlogModel';
-const schema = require('../middlewares/BlogValidation');
-const commentSchema = require('../middlewares/CommentValidation');
-// import schema from '../middlewares/BlogValidation';
+// const BlogPost = require('../models/BlogModel');
+// // import BlogPost from '../models/BlogModel';
+// const schema = require('../middlewares/BlogValidation');
+// const commentSchema = require('../middlewares/CommentValidation');
+// // import schema from '../middlewares/BlogValidation';
+
+import BlogPost from '../models/BlogModel.js';
+import schema from '../middlewares/BlogValidation.js';
+import commentSchema from '../middlewares/CommentValidation.js'
 
 class BlogController {
 
@@ -145,4 +149,4 @@ class BlogController {
 
 }
 
-module.exports = BlogController;
+export default BlogController;

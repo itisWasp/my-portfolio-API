@@ -1,7 +1,8 @@
-const Joi = require('@hapi/joi');
+// const Joi = require('@hapi/joi');
+import Joi from '@hapi/joi';
 
 
-const registerValidation = (data) => {
+export const registerValidation = (data) => {
     let schema;
     return schema = Joi.object({
         UserName: Joi.string().min(6).max(255).trim().required(),
@@ -13,7 +14,7 @@ const registerValidation = (data) => {
 
 }
 
-const loginValidation = (data) => {
+export const loginValidation = (data) => {
     let schema;
     return schema = Joi.object({
         Email: Joi.string().min(6).max(255).trim().required().email(),
@@ -22,7 +23,7 @@ const loginValidation = (data) => {
 
 }
 
-const registerAdminValidation = (data) => {
+export const registerAdminValidation = (data) => {
     let schema;
     return schema = Joi.object({
         UserName: Joi.string().min(6).max(255).trim().required(),
@@ -34,7 +35,7 @@ const registerAdminValidation = (data) => {
 
 }
 
-const loginAdminValidation = (data) => {
+export const loginAdminValidation = (data) => {
     let schema;
     return schema = Joi.object({
         Email: Joi.string().min(6).max(255).trim().required().email(),
@@ -43,8 +44,8 @@ const loginAdminValidation = (data) => {
 
 }
 
-module.exports.registerValidation = registerValidation;
-module.exports.loginValidation = loginValidation;
+// module.exports.registerValidation = registerValidation;
+// module.exports.loginValidation = loginValidation;
 
-module.exports.registerAdminValidation = registerAdminValidation;
-module.exports.loginAdminValidation = loginAdminValidation;
+// module.exports.registerAdminValidation = registerAdminValidation;
+// module.exports.loginAdminValidation = loginAdminValidation;

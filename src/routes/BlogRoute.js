@@ -1,8 +1,14 @@
-const  express = require('express');
+// const  express = require('express');
+// const router = express.Router();
+// const BlogController = require('../controllers/BlogController');
+// const imagePost = require('../helpers/image');
+// const privateRoute = require('../middlewares/verifyToken');
+
+import express from 'express';
 const router = express.Router();
-const BlogController = require('../controllers/BlogController');
-const imagePost = require('../helpers/image');
-const privateRoute = require('../middlewares/verifyToken');
+import BlogController from '../controllers/BlogController.js';
+import imagePost from '../helpers/image.js';
+import privateRoute from '../middlewares/verifyToken.js';
 
 // import express from 'express';
 // import BlogController from '../controllers/BlogController'
@@ -17,4 +23,4 @@ router.delete('/Deleteblog/:id', privateRoute.authAdmin , BlogController.deleteP
 router.put('/comment/:id', privateRoute.authUser ,BlogController.commentPost)
 router.put('/like/:id', privateRoute.authUser, BlogController.likePost);
 
-module.exports = router;
+export default router;

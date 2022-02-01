@@ -1,8 +1,9 @@
-const Joi = require('@hapi/joi');
+// const Joi = require('@hapi/joi');
+import Joi from '@hapi/joi';
 
 const commentSchema = Joi.object({
 
     Comment : Joi.string().min(6).trim()
 })
 
-module.exports = commentSchema;
+export default commentSchema;
