@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "start": "npm run build && nodemon dist/index.js",
+    "start": "npm run build && node dist/index.js",
     "build": "babel src --out-dir dist",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node -r dotenv/config ./src/index.js",
     "test": "./node_modules/.bin/mocha --timeout 100000 --require @babel/register"
@@ -31,6 +31,11 @@
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.3.0"
   },
+  
+  "engines": {
+      "node": "17.4.0"
+  }
+  
   "devDependencies": {
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.12",
