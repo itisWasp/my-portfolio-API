@@ -15,6 +15,8 @@ import contactRoute from './routes/ContactRoute.js';
 import blogRoute from './routes/BlogRoute.js';
 import userRoute from './routes/UsersRoute.js';
 import init from './config/init.js';
+import swaggerUi from 'swagger-ui-express';
+import doc from './openDoc.js';
 
 dotenv.config();
 
@@ -31,5 +33,6 @@ app.use(express.json());
 app.use('/api', contactRoute);
 app.use('/api', blogRoute);
 app.use('/api', userRoute);
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(doc));
 
 export default app;
