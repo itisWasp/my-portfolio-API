@@ -8,9 +8,9 @@ const router = express.Router();
 import ContactController from '../controllers/ContactController.js';
 import privateRoute from '../middlewares/verifyToken.js';
 
-router.post('/contact', ContactController.submitForm);
+router.post('/PostContact', ContactController.submitForm);
 router.get('/contact', privateRoute.authAdmin , ContactController.getForm);
 router.get('/contact/:id', privateRoute.authAdmin , ContactController.getFormById);
-router.delete('/contact/:id', privateRoute.authAdmin , ContactController.deleteForm);
+router.delete('/DeleteContact/:id', privateRoute.authAdmin , ContactController.deleteForm);
 
 export default router;
