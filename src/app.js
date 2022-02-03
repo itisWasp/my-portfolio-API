@@ -33,6 +33,6 @@ app.use(express.json());
 app.use('/api', contactRoute);
 app.use('/api', blogRoute);
 app.use('/api', userRoute);
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(doc));
+app.use('/', swaggerUi.serve, swaggerUi.setup(doc));
 
 export default app;
