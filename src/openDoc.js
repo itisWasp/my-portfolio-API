@@ -14,10 +14,10 @@ module.exports = {
       }
     },
 
-    schemes : [
-      "http",
-      "https",
-    ],
+    // schemes : [
+    //   "http",
+    //   "http"
+    // ],
 
     // securityDefinitions : {
     //   Bearer : {
@@ -31,6 +31,10 @@ module.exports = {
       {
         url: 'http://localhost:5000/',
         description: 'Local server'
+      },
+      {
+        url: 'https://my-portfolio-back-end.herokuapp.com/doc/',
+        description: 'Remote server'
       }
     ],
     
@@ -112,7 +116,7 @@ module.exports = {
         post: {
           security: [
             {
-              ApiKeyAuth: []
+              Admin: []
             }
           ],
           tags: ['BlogPost'],
@@ -137,6 +141,9 @@ module.exports = {
             '200': {
               description: 'New Post was created successfully'
             },
+            '401': {
+              description: 'Unauthorized to Post'
+            },
             '400': {
               description: 'Bad Request',
               // content: {
@@ -160,7 +167,7 @@ module.exports = {
         delete: {
           security: [
             {
-              ApiKeyAuth: []
+              Admin: []
             }
           ],
           tags: ['BlogPost'],
@@ -192,6 +199,9 @@ module.exports = {
               //   },
               // }
             },
+            '401': {
+              description: 'Unauthorized to Delete Post'
+            },
             '404': {
               description: 'The blog wasn\'t found'
             }
@@ -203,7 +213,7 @@ module.exports = {
         patch: {
           security: [
             {
-              ApiKeyAuth: []
+              Admin: []
             }
           ],
           tags: ['BlogPost'],
@@ -237,6 +247,9 @@ module.exports = {
             '200': {
               description: 'Post Was Updated Successfully'
             },
+            '401': {
+              description: 'Unauthorized to Update Post'
+            },
             '400': {
               description: 'Bad Request',
               // content: {
@@ -260,7 +273,9 @@ module.exports = {
         put: {
           security: [
             {
-              ApiKeyAuth: []
+              Admin: [],
+            },{
+              User : [],
             }
           ],
           tags: ['BlogPost'],
@@ -292,6 +307,7 @@ module.exports = {
             '200': {
               description: 'Comment Was Updated Successfully'
             },
+            
             '400': {
               description: 'Bad Request',
               // content: {
@@ -315,7 +331,10 @@ module.exports = {
         put: {
           security: [
             {
-              ApiKeyAuth: []
+              Admin: [],
+            },
+            {
+              User : [],
             }
           ],
           tags: ['BlogPost'],
@@ -412,7 +431,7 @@ module.exports = {
         get: {
           security: [
             {
-              ApiKeyAuth: []
+              Admin: []
             }
           ],
           tags: ['ContactForm'],
@@ -434,6 +453,10 @@ module.exports = {
                 }
               }
             },
+
+            '401': {
+              description: 'Unauthorized to View Contact Queries',
+            },
             
           }
         },
@@ -444,7 +467,7 @@ module.exports = {
         get: {
           security: [
             {
-              ApiKeyAuth: []
+              Admin: []
             }
           ],
           tags: ['ContactForm'],
@@ -476,6 +499,9 @@ module.exports = {
                 },
               }
             },
+            '401': {
+              description: 'Unauthorized to View Contact Query By Id',
+            },
             '404': {
               description: 'The query wasn\'t found'
             }
@@ -487,7 +513,7 @@ module.exports = {
         delete: {
           security: [
             {
-              ApiKeyAuth: []
+              Admin: []
             }
           ],
           tags: ['ContactForm'],
@@ -518,6 +544,9 @@ module.exports = {
               //     },
               //   },
               // }
+            },
+            '401': {
+              description: 'Unauthorized to Delete Contact Queries',
             },
             '404': {
               description: 'The query wasn\'t found'
@@ -568,31 +597,35 @@ module.exports = {
 
       },
 
-      // '/api/users': {
-      //   get: {
-      //     security: [
-      //       {
-      //         ApiKeyAuth: []
-      //       }
-      //     ],
-      //     tags: ['Users'],
-      //     summary: 'Returns the list of all the users',
-      //     responses: {
-      //       '200': {
-      //         description: 'The list of the users',
-      //         content: {
-      //           'application/json': {
-      //             schema: {
-      //               $ref: '#/components/schemas/User'
-      //             },
-      //           }
-      //         }
-      //       },
-            
-      //     }
-      //   },
+      '/api/users': {
+        get: {
+          security: [
+            {
+              Admin: []
+            }
+          ],
+          tags: ['Users'],
+          summary: 'Returns the list of all the users',
+          responses: {
+            '200': {
+              description: 'The list of the users',
+              content: {
+                'application/json': {
+                  schema: {
+                    $ref: '#/components/schemas/User'
+                  },
+                }
+              }
+            },
 
-      // },
+            '401': {
+              description: 'Unauthorized to get All Users',
+            },
+            
+          }
+        },
+
+      },
 
       '/api/login': {
         post: {
@@ -763,11 +796,18 @@ module.exports = {
         
       },
       securitySchemes: {
-        ApiKeyAuth: {
+        Admin: {
           type: 'apiKey',
           in: 'header',
-          name: 'admin-token' 
-        }
+          name: 'auth-token' 
+        },
+
+        User: {
+          type: 'apiKey',
+          in: 'header',
+          name: 'auth-token' 
+        },
+        
       }
     }
   };
