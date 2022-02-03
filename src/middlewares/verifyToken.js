@@ -10,6 +10,10 @@ class privateRoute {
             
             const verified = jwt.verify(token, process.env.TOKEN_SECRET);
             req.user = verified.user;
+
+            // if(req.user.role == 'admin'){
+            //     res.status(401).send('Access Denied You are an Admin');
+            // }
     
             next();
     
@@ -20,13 +24,17 @@ class privateRoute {
     }
     
     static authAdmin = (req, res, next) => {
-        const token = req.header('admin-token');
+        const token = req.header('auth-token');
         if(!token) return res.status(401).send('Access Denied You Do not have permission to access this Page');
     
         try {
     
             const verified = jwt.verify(token, process.env.TOKEN_SECRET);
-            req.user = verified;
+            req.user = verified.user;
+
+            if(req.user.role == 'user'){
+                res.status(401).send('Access Denied You Are not Authorized ');
+            }
     
             next();
     

@@ -151,8 +151,9 @@ class UsersController {
 
 
             //create and Assign a token
-            const token = jwt.sign({_id: user.id, role: user.role}, process.env.TOKEN_SECRET, {expiresIn : 3600});
-            res.header('admin-token', token);
+            
+            const token = jwt.sign({ user : {id: user.id, role: user.role, username : user.username}}, process.env.TOKEN_SECRET, {expiresIn : 3600});
+            res.header('auth-token', token);
 
             res.send('Admin Logged In Successfully :)');
 
