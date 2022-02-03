@@ -14,10 +14,10 @@ module.exports = {
       }
     },
 
-    // schemes : [
-    //   "http",
-    //   "https",
-    // ],
+    schemes : [
+      "http",
+      "https",
+    ],
 
     // securityDefinitions : {
     //   Bearer : {
