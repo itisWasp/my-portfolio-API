@@ -38,7 +38,7 @@ class UsersController {
 
         try {
             await user.save();
-            res.send({user: user._id});
+            res.status(200).json({user: user._id});
         } catch (err) {
             res.status(400).send(err);
         }
@@ -49,7 +49,7 @@ class UsersController {
 
         try {
             const user = await User.find();
-            res.send(user);
+            res.status(200).json(user);
         } catch (error) {
             res.status(404).send(error);
         }
@@ -86,7 +86,7 @@ class UsersController {
             const token = jwt.sign({ user : {id: user.id, role: user.role, username : user.username}}, process.env.TOKEN_SECRET, {expiresIn:3600});
             res.header('auth-token', token);
 
-            res.send('Logged In Successfully :)');
+            res.status(200).json({success: 'Logged In Successfully :'});
 
     }
 
@@ -155,7 +155,7 @@ class UsersController {
             const token = jwt.sign({ user : {id: user.id, role: user.role, username : user.username}}, process.env.TOKEN_SECRET, {expiresIn : 3600});
             res.header('auth-token', token);
 
-            res.send('Admin Logged In Successfully :)');
+            res.status(200).json({success: 'Admin Logged In Successfully :)'});
 
     }
 

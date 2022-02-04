@@ -64,7 +64,7 @@ class BlogController {
         
         try{
             const blog = await BlogPost.find();
-            res.send(blog);
+            res.status(200).json({ message: "liste of all articles", blog });
         } catch(err){
             res.status(404).send(err);
         }
@@ -75,7 +75,7 @@ class BlogController {
 
         try{
             const blog = await BlogPost.findOne({_id: req.params.id});
-            res.send(blog);
+            res.status(200).json(blog);
         } catch(err){
             res.status(404).send({err: 'Post Does Not Exist'});
         }
@@ -109,7 +109,7 @@ class BlogController {
                 });
             }
             await blog.save();
-            res.send(blog);
+            res.status(200).json(blog);
         } catch(err) {
             res.status(400).send({err: "Post Doesn\'t Exist"});
         }

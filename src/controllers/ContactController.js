@@ -24,7 +24,7 @@ class ContactController{
 
         try{
             await contact.save();
-            res.send(contact);
+            res.status(200).json(contact);
         } catch(err){
             res.status(400).send(err);
         }
@@ -35,7 +35,7 @@ class ContactController{
     static getForm = async (req, res) => {
         try{
             const contact = await Contacts.find()
-            res.send(contact);
+            res.status(200).json(contact);
         } catch(err){
             res.status(404).send(err);
         }
@@ -44,7 +44,7 @@ class ContactController{
     static getFormById = async (req, res) => {
         try {
             const contact = await Contacts.findOne({_id: req.params.id});
-            res.send(contact);
+            res.status(200).json(contact);
         }
 
         catch (err) {
