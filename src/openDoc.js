@@ -33,7 +33,7 @@ module.exports = {
         description: 'Local server'
       },
       {
-        url: 'https://my-portfolio-back-end.herokuapp.com/doc/',
+        url: 'https://my-portfolio-back-end.herokuapp.com/',
         description: 'Remote server'
       }
     ],
@@ -116,7 +116,7 @@ module.exports = {
         post: {
           security: [
             {
-              Admin: []
+              ApiKey: []
             }
           ],
           tags: ['BlogPost'],
@@ -167,7 +167,7 @@ module.exports = {
         delete: {
           security: [
             {
-              Admin: []
+              ApiKey: []
             }
           ],
           tags: ['BlogPost'],
@@ -213,7 +213,7 @@ module.exports = {
         patch: {
           security: [
             {
-              Admin: []
+              ApiKey: []
             }
           ],
           tags: ['BlogPost'],
@@ -273,9 +273,7 @@ module.exports = {
         put: {
           security: [
             {
-              Admin: [],
-            },{
-              User : [],
+              ApiKey: [],
             }
           ],
           tags: ['BlogPost'],
@@ -331,10 +329,7 @@ module.exports = {
         put: {
           security: [
             {
-              Admin: [],
-            },
-            {
-              User : [],
+              ApiKey: [],
             }
           ],
           tags: ['BlogPost'],
@@ -431,7 +426,7 @@ module.exports = {
         get: {
           security: [
             {
-              Admin: []
+              ApiKey: []
             }
           ],
           tags: ['ContactForm'],
@@ -467,7 +462,7 @@ module.exports = {
         get: {
           security: [
             {
-              Admin: []
+              ApiKey: []
             }
           ],
           tags: ['ContactForm'],
@@ -513,7 +508,7 @@ module.exports = {
         delete: {
           security: [
             {
-              Admin: []
+              ApiKey: []
             }
           ],
           tags: ['ContactForm'],
@@ -601,7 +596,7 @@ module.exports = {
         get: {
           security: [
             {
-              Admin: []
+              ApiKey: []
             }
           ],
           tags: ['Users'],
@@ -668,7 +663,7 @@ module.exports = {
 
       },
 
-      '/api/admin': {
+      '/api/ApiKey': {
         post: {
           tags: ['Login'],
           description: 'Log In',
@@ -684,7 +679,7 @@ module.exports = {
           },
           responses: {
             '200': {
-              description: 'Admin Logged In Successfully'
+              description: 'ApiKey Logged In Successfully'
             },
             '400': {
               description: 'Bad Request',
@@ -796,18 +791,11 @@ module.exports = {
         
       },
       securitySchemes: {
-        Admin: {
+        ApiKey: {
           type: 'apiKey',
           in: 'header',
           name: 'auth-token' 
         },
-
-        User: {
-          type: 'apiKey',
-          in: 'header',
-          name: 'auth-token' 
-        },
-        
       }
     }
   };
