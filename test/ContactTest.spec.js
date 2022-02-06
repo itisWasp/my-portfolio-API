@@ -20,7 +20,7 @@ chai.use(chaiHttp);
       };
       chai
         .request(server)
-        .post("/api/contact")
+        .post("/api/PostContact")
         .send(form)
         .end((err, res) => {
           res.should.have.status(200);
@@ -38,12 +38,12 @@ chai.use(chaiHttp);
 
 describe("GET /api/contact", () => {
   it("It Should GET all Contact Form Queries", (done) => {
-    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWYzYTQ0MThkNDQwYzhlODE2ZDQwOWQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NDMzODAzNjZ9.Ku9uyjYv-aYUB7Xka4ezHWWnPsy_y9z0hT7t3CqcHMI"
+    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0MTI2ODExLCJleHAiOjE2NDQxMzA0MTF9.jVHDNynu1Y971XLjjk12GN4kbMCpLdPlRhiGPvfmdWk"
     chai
       .request(server)
       .get("/api/contact")
       .set({
-        'admin-token': tempToken,
+        'auth-token': tempToken,
       })
       .end((err, res) => {
         res.should.have.status(200);
@@ -58,13 +58,13 @@ describe("GET /api/contact", () => {
 
 describe("GET /api/contact/:id", () => {
   it("It Should GET a Contact Form by ID", (done) => {
-    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWYzYTQ0MThkNDQwYzhlODE2ZDQwOWQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NDMzODAzNjZ9.Ku9uyjYv-aYUB7Xka4ezHWWnPsy_y9z0hT7t3CqcHMI"
-    const _id = "61f11e689436d4e969d39b6a";
+    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0MTI2ODExLCJleHAiOjE2NDQxMzA0MTF9.jVHDNynu1Y971XLjjk12GN4kbMCpLdPlRhiGPvfmdWk"
+    const _id = "61f0fceb69b2259949e3ab88";
     chai
       .request(server)
       .get("/api/contact/" + _id)
       .set({
-        'admin-token': tempToken,
+        'auth-token': tempToken,
       })  
       .end((err, res) => {
         res.should.have.status(200);
@@ -83,13 +83,13 @@ describe("GET /api/contact/:id", () => {
 //delete a contact form query.
 
 describe("DELETE /api/contact/:id", () => {
-  let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWYzYTQ0MThkNDQwYzhlODE2ZDQwOWQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NDMzODAzNjZ9.Ku9uyjYv-aYUB7Xka4ezHWWnPsy_y9z0hT7t3CqcHMI"
+  let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0MTI2ODExLCJleHAiOjE2NDQxMzA0MTF9.jVHDNynu1Y971XLjjk12GN4kbMCpLdPlRhiGPvfmdWk"
   it("It Should DELETE a Contact Query by ID", (done) => {
     const _id = "61f11e689436d4e969d39b6a";
     request(server)
       .delete("/api/contact/" + _id)
       .set({
-        'admin-token': tempToken,
+        'auth-token': tempToken,
       })
       .expect(200)
 

@@ -33,7 +33,7 @@ module.exports = {
         description: 'Local server'
       },
       {
-        url: 'https://my-portfolio-back-end.herokuapp.com/',
+        url: 'https://my-portfolio-back-end.herokuapp.com/doc/',
         description: 'Remote server'
       }
     ],
