@@ -17,10 +17,12 @@ import userRoute from './routes/UsersRoute.js';
 import init from './config/init.js';
 import swaggerUi from 'swagger-ui-express';
 import doc from './openDoc.js';
+import cors from 'cors';
 
 dotenv.config();
 
-
+const corsOptions = { origin: '*', optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+} 
 
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopology: true }).then(()=> {
     init().then(
@@ -30,9 +32,9 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true, useUnifiedTopo
 });
 
 app.use(express.json());
-app.use('/api', contactRoute);
-app.use('/api', blogRoute);
-app.use('/api', userRoute);
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(doc));
+app.use('/api', cors(corsOptions) ,contactRoute);
+app.use('/api', cors(corsOptions) ,blogRoute);
+app.use('/api', cors(corsOptions) ,userRoute);
+app.use('/doc', cors(corsOptions) ,swaggerUi.serve, swaggerUi.setup(doc));
 
 export default app;
