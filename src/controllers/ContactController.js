@@ -26,7 +26,7 @@ class ContactController{
             await contact.save();
             res.status(200).json(contact);
         } catch(err){
-            res.status(400).send(err);
+            res.status(400).json({message : err});
         }
         
         
@@ -37,7 +37,7 @@ class ContactController{
             const contact = await Contacts.find()
             res.status(200).json(contact);
         } catch(err){
-            res.status(404).send(err);
+            res.status(404).json({message :err});
         }
     }
 
@@ -49,17 +49,17 @@ class ContactController{
 
         catch (err) {
             res.status(404);
-            res.send({err: 'The Form Doesn\'t exist'});
+            res.json({err: 'The Form Doesn\'t exist'});
         }
     }
 
     static deleteForm = async (req, res) => {
         try{
             await Contacts.deleteOne({_id: req.params.id});
-            res.status(200).send();
+            res.status(200).json();
         }
         catch(err){
-            res.status(404).send({error: 'The Form Doesn\'t exist'});
+            res.status(404).json({error: 'The Form Doesn\'t exist'});
         }
     }
 

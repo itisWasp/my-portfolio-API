@@ -20,11 +20,11 @@ class UsersController {
 
         //Let's validate the inputs.
         const {error} = registerValidation(req.body);
-        if (error) return res.status(400).send(error.details[0].message);  
+        if (error) return res.status(400).json({message : error.details[0].message});  
         
         //check if a user is in the database
         const emailExists = await User.findOne({email: req.body.Email});
-        if(emailExists) return res.status(400).send('Email already Exists');
+        if(emailExists) return res.status(400).json({message:'Email already Exists'});
 
         //Hash the Password
         const salt = await bcrypt.genSalt(10);
@@ -64,11 +64,11 @@ class UsersController {
 
             //check if a email is in the database
             const user = await User.findOne({email: req.body.Email});
-            if(!user) return res.status(400).send('Invalid Email Plz Try Again!');
+            if(!user) return res.status(400).json({message:'Invalid Email Plz Try Again!'});
 
             //check if the password is correct.
             const validPass = await bcrypt.compare(req.body.Password, user.password);
-            if(!validPass) return res.status(400).send('Invalid Password Plz Try Again!');
+            if(!validPass) return res.status(400).json({message:'Invalid Password Plz Try Again!'});
 
             // do the database authentication here, with user name and password combination.
             // const token = jwt.sign({_id: user.id}, config.secret, { expiresIn: config.tokenLife})
@@ -131,12 +131,12 @@ class UsersController {
 
             //check if a email is in the database
             const user = await User.findOne({email: req.body.Email});
-            if(!user) return res.status(400).send('Invalid Admin Email Plz Try Again!');
+            if(!user) return res.status(400).json({message:'Invalid Admin Email Plz Try Again!'});
 
             //check if the password is correct.
             // const validPass = await bcrypt.compare(req.body.Password, user.password);
             const validPass = req.body.Password === config.adminAccountPassword;
-            if(!validPass) return res.status(400).send('Invalid Admin Password Plz Try Again!');
+            if(!validPass) return res.status(400).json({message :'Invalid Admin Password Plz Try Again!'});
 
             // do the database authentication here, with user name and password combination.
             // const token = jwt.sign({_id: user.id}, config.secret, { expiresIn: config.tokenLife})

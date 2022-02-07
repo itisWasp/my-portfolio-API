@@ -13,7 +13,7 @@ class BlogController {
     static post = async (req, res)=>{
         //Let's validate the inputs.
         const {error} = schema.validate(req.body);
-        if (error) return res.status(400).send(error.details[0].message);   
+        if (error) return res.status(400).json({message : error.details[0].message});   
 
         const blog = new BlogPost({
             title: req.body.Title,
@@ -25,7 +25,7 @@ class BlogController {
             await blog.save();
             res.send(blog);
         } catch(err){
-            res.status(400).send(err);
+            res.status(400).json({message: err});
         }
 
     }
@@ -34,7 +34,7 @@ class BlogController {
 
         //Let's validate the inputs.
         const {error} = schema.validate(req.body);
-        if (error) return res.status(400).send(error.details[0].message);   
+        if (error) return res.status(400).json({message : error.details[0].message});   
 
         const blog = new BlogPost({
             title: req.body.Title,
@@ -56,7 +56,7 @@ class BlogController {
             await blog.save();
             res.send(blog);
         } catch(err) {
-            res.status(400).send({err: "Post Doesn\'t Exist"});
+            res.status(400).json({err: "Post Doesn\'t Exist"});
         }
     }
 
@@ -66,7 +66,7 @@ class BlogController {
             const blog = await BlogPost.find();
             res.status(200).json({ message: "liste of all articles", blog });
         } catch(err){
-            res.status(404).send(err);
+            res.status(404).json({message :err});
         }
 
     }
@@ -77,16 +77,16 @@ class BlogController {
             const blog = await BlogPost.findOne({_id: req.params.id});
             res.status(200).json(blog);
         } catch(err){
-            res.status(404).send({err: 'Post Does Not Exist'});
+            res.status(404).json({err: 'Post Does Not Exist'});
         }
     }
 
     static deletePostById = async (req, res) => {
         try{
             await BlogPost.deleteOne({_id: req.params.id});
-            res.status(204).send();
+            res.status(204).json();
         } catch(err){
-            res.status(400).send({err: 'Post Does Not Exist'});
+            res.status(400).json({err: 'Post Does Not Exist'});
         }
     }
 
@@ -94,7 +94,7 @@ class BlogController {
 
         //Let's validate the inputs.
         const {error} = commentSchema.validate(req.body);
-        if (error) return res.status(400).send(error.details[0].message);   
+        if (error) return res.status(400).json({message : error.details[0].message});   
 
         try{
             
@@ -111,7 +111,7 @@ class BlogController {
             await blog.save();
             res.status(200).json(blog);
         } catch(err) {
-            res.status(400).send({err: "Post Doesn\'t Exist"});
+            res.status(400).json({err: "Post Doesn\'t Exist"});
         }
 
     }
