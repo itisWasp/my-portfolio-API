@@ -38,7 +38,7 @@ chai.use(chaiHttp);
 
 describe("GET /api/contact", () => {
   it("It Should GET all Contact Form Queries", (done) => {
-    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0MTI2ODExLCJleHAiOjE2NDQxMzA0MTF9.jVHDNynu1Y971XLjjk12GN4kbMCpLdPlRhiGPvfmdWk"
+    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0MzgwODc1LCJleHAiOjE2NDQzODQ0NzV9.ojRFmBpSPbEqKHxPIf78oGnn6TqHNzyx_IUA-bykT_8"
     chai
       .request(server)
       .get("/api/contact")
@@ -58,7 +58,7 @@ describe("GET /api/contact", () => {
 
 describe("GET /api/contact/:id", () => {
   it("It Should GET a Contact Form by ID", (done) => {
-    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0MTI2ODExLCJleHAiOjE2NDQxMzA0MTF9.jVHDNynu1Y971XLjjk12GN4kbMCpLdPlRhiGPvfmdWk"
+    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0MzgwODc1LCJleHAiOjE2NDQzODQ0NzV9.ojRFmBpSPbEqKHxPIf78oGnn6TqHNzyx_IUA-bykT_8"
     const _id = "61f0fceb69b2259949e3ab88";
     chai
       .request(server)
@@ -70,7 +70,6 @@ describe("GET /api/contact/:id", () => {
         res.should.have.status(200);
         res.body.should.have.property("_id");
         res.body.should.be.a("object");
-        res.body.should.have.property("fullname");
         res.body.should.have.property("email");
         res.body.should.have.property("messages");
         res.body.should.have.property("_id").equals(_id);
