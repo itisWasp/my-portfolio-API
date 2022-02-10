@@ -7,7 +7,8 @@
     "start": "npm run build && nodemon dist/index.js",
     "build": "babel src --out-dir dist",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node -r dotenv/config ./src/index.js",
-    "test": "DEBUG=true nyc ./node_modules/.bin/mocha --timeout 100000 --exit --require @babel/register"
+    "test": "nyc --reporter=text-summary --reporter=html --reporter=lcovonly mocha test --timeout 100000 --exit --require @babel/register",
+    "coverage" : "nyc npm run test"
   },
   "keywords": [],
   "author": "",
