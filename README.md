@@ -2,9 +2,8 @@
 # Nodejs Expressjs MongoDB My-portfolio-API
 
 [![Author](http://img.shields.io/badge/author-@Israel-blue.svg)](https://www.linkedin.com/in/mugisha-israel-98a72721a/) 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/dd7eaa156386a05a0b07/test_coverage)](https://codeclimate.com/github/itisWasp/my-portfolio-API/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/dd7eaa156386a05a0b07/maintainability)](https://codeclimate.com/github/itisWasp/my-portfolio-API/maintainability)
-
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6ec366bba1c873cfb5a6/test_coverage)](https://codeclimate.com/github/itisWasp/my-portfolio-API/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6ec366bba1c873cfb5a6/maintainability)](https://codeclimate.com/github/itisWasp/my-portfolio-API/maintainability)
 
 A REST API Developed with Node.js, Express, and MongoDB for my portofolio website.
 
