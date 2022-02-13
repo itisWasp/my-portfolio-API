@@ -29,5 +29,10 @@ jobs:
       - run: npm install
       - run: npm run build --if-present
       - run: npm test
+      - name: Code Climate Test Reporter
+        uses: aktions/codeclimate-test-reporter@v1
+        with:
+          codeclimate-test-reporter-id: 1710e76d02f7a7c2170b57648dabc5ca3bfed3a79d11a8728416ddf729346ce4
+          command: after-build
     env:
       CI: true

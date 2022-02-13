@@ -38,7 +38,7 @@ chai.use(chaiHttp);
 
 describe("GET /api/contact", () => {
   it("It Should GET all Contact Form Queries", (done) => {
-    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0NTA3OTA2LCJleHAiOjE2NDQ1MTE1MDZ9.DfB0X826yk8ET2OAJuyvoM2mZHWDxDU16BGQmCvO7Fo"
+    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIwNjExOWI5Njg0OTY4MjRhOWRiMzIwIiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0NzQxNjQ1fQ.1NdkUgQrEAQlu2wbzvflLBXBhDLBRDDTIHFRM3GbfO8"
     chai
       .request(server)
       .get("/api/contact")
@@ -58,7 +58,7 @@ describe("GET /api/contact", () => {
 
 describe("GET /api/contact/:id", () => {
   it("It Should GET a Contact Form by ID", (done) => {
-    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0NTA3OTA2LCJleHAiOjE2NDQ1MTE1MDZ9.DfB0X826yk8ET2OAJuyvoM2mZHWDxDU16BGQmCvO7Fo"
+    let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIwNjExOWI5Njg0OTY4MjRhOWRiMzIwIiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0NzQxNjQ1fQ.1NdkUgQrEAQlu2wbzvflLBXBhDLBRDDTIHFRM3GbfO8"
     const _id = "61f0fceb69b2259949e3ab88";
     chai
       .request(server)
@@ -82,9 +82,9 @@ describe("GET /api/contact/:id", () => {
 //delete a contact form query.
 
 describe("DELETE /api/contact/:id", () => {
-  let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjFmN2QzOTRlNWJiZDE5NDg5MGQyZGQ3Iiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0MTI2ODExLCJleHAiOjE2NDQxMzA0MTF9.jVHDNynu1Y971XLjjk12GN4kbMCpLdPlRhiGPvfmdWk"
+  let tempToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIwNjExOWI5Njg0OTY4MjRhOWRiMzIwIiwicm9sZSI6ImFkbWluIiwidXNlcm5hbWUiOiJJc3JhZWwifSwiaWF0IjoxNjQ0NzQxNjQ1fQ.1NdkUgQrEAQlu2wbzvflLBXBhDLBRDDTIHFRM3GbfO8"
   it("It Should DELETE a Contact Query by ID", (done) => {
-    const _id = "61f11e689436d4e969d39b6a";
+    const _id = "61f0fceb69b2259949e3ab88";
     request(server)
       .delete("/api/contact/" + _id)
       .set({
