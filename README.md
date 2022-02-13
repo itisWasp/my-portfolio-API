@@ -1,7 +1,10 @@
 
 # Nodejs Expressjs MongoDB My-portfolio-API
 
-[![Author](http://img.shields.io/badge/author-@Israel-blue.svg)](https://www.linkedin.com/in/mugisha-israel-98a72721a/) [![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)](https://github.com/maitraysuthar/rest-api-nodejs-mongodb/blob/master/LICENSE) ![GitHub repo size](https://img.shields.io/github/repo-size/maitraysuthar/rest-api-nodejs-mongodb) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/b3eb80984adc4671988ffb22d6ad83df)](https://www.codacy.com/manual/maitraysuthar/rest-api-nodejs-mongodb?utm_source=github.com&utm_medium=referral&utm_content=maitraysuthar/rest-api-nodejs-mongodb&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b3eb80984adc4671988ffb22d6ad83df)](https://www.codacy.com/manual/maitraysuthar/rest-api-nodejs-mongodb?utm_source=github.com&utm_medium=referral&utm_content=maitraysuthar/rest-api-nodejs-mongodb&utm_campaign=Badge_Grade) ![Travis (.com)](https://img.shields.io/travis/com/maitraysuthar/rest-api-nodejs-mongodb)
+[![Author](http://img.shields.io/badge/author-@Israel-blue.svg)](https://www.linkedin.com/in/mugisha-israel-98a72721a/) 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/dd7eaa156386a05a0b07/test_coverage)](https://codeclimate.com/github/itisWasp/my-portfolio-API/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/dd7eaa156386a05a0b07/maintainability)](https://codeclimate.com/github/itisWasp/my-portfolio-API/maintainability)
+
 
 A REST API Developed with Node.js, Express, and MongoDB for my portofolio website.
 
