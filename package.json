@@ -7,7 +7,7 @@
     "start": "npm run build && nodemon dist/index.js",
     "build": "babel src --out-dir dist",
     "dev": "nodemon --exec ./node_modules/.bin/babel-node -r dotenv/config ./src/index.js",
-    "test": "nyc --reporter=text-summary --reporter=html --reporter=lcovonly mocha test --timeout 10000000000 --exit --require @babel/register",
+    "test": "nyc --reporter=text-summary --reporter=html --reporter=lcovonly mocha test --timeout 1000000 --exit --require @babel/register",
     "coverage": "nyc npm run test"
   },
   "keywords": [],
@@ -32,4 +32,25 @@
     "esm": "^3.2.25",
     "express": "^4.17.2",
     "istanbul": "^0.4.5",
-    "jest": "^
+    "jest": "^27.5.0",
+    "joi-browser": "^13.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "lowdb": "^3.0.0",
+    "mocha": "^9.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "mongoose": "^6.1.8",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.2.0",
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
+    "path": "^0.12.7",
+    "pretest": "^1.1.0",
+    "sinon": "^13.0.1",
+    "supertest": "^6.2.2",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "engines": {
+    "node": "17.4.0"
+  }
+}

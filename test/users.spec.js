@@ -24,7 +24,7 @@ const tempLogin = {
 
 const userRegister = {
     UserName:"kevinNew",
-    Email:"janesmith@andela.com",
+    Email:"janesmith1@andela.com",
     Password:"Andelahfghfh"
 };
 
