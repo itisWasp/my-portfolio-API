@@ -18,14 +18,14 @@ class privateRoute {
             next();
     
         } catch (error) {
-            res.status(400).send('Invalid Token');
+            res.status(400).json({msg : 'Invalid Token'});
         }
     
     }
     
     static authAdmin = (req, res, next) => {
         const token = req.header('auth-token');
-        if(!token) return res.status(401).send('Access Denied You Do not have permission to access this Page');
+        if(!token) return res.status(401).json({msg :'Access Denied You Do not have permission to access this Page'});
     
         try {
     
@@ -33,13 +33,13 @@ class privateRoute {
             req.user = verified.user;
 
             if(req.user.role == 'user'){
-                res.status(401).send('Access Denied You Are not Authorized ');
+                res.status(401).json({msg : 'Access Denied You Are not Authorized '});
             }
     
             next();
     
         } catch (error) {
-            res.status(400).send('Invalid Token');
+            res.status(400).json({msg : 'Invalid Token'});
         }
     
     }
