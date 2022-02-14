@@ -29,3 +29,9 @@ jobs:
           command: after-build
     env:
       CI: true
+      DB_CONNECT: ${{ secrets.DB_CONNECT }}
+      TOKEN_SECRET: ${{ secrets.TOKEN_SECRET }}
+      CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+      CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+      CLOUDINARY_NAME: ${{ secrets.CLOUDINARY_NAME }}
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
